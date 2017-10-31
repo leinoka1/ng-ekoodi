@@ -2,16 +2,20 @@
   {{title}}
 </p>
 
-<div *ngFor="let user of users" (click)="onUserSelect(user)" >
- <ekoodi-user-info [user]="user"></ekoodi-user-info>
-</div>
 
 <mat-list>
-
   <h3 mat-subheader>Users</h3>
   <ekoodi-user-info *ngFor="let user of users"
                     [user]="user">
-
   </ekoodi-user-info>
-
 </mat-list>
+
+<mat-form-field class="example-full-width">
+   <input matInput placeholder="First name" [(ngModel)]="newUser.firstName">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+   <input matInput placeholder="Last name"[(ngModel)]="newUser.lastName">
+</mat-form-field>
+<button mat-raised-button (click)="addUser()">Add</button>
+
+
