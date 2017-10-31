@@ -33,5 +33,8 @@ export class UserListComponent implements OnInit {
 
   addUser() {
     console.log(this.newUser);
+
+this.userService.addUser(this.newUser);
+    console.log(this.users);
   }
 }
