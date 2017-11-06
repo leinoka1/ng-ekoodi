@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {User} from './user/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ekoodi-root',
@@ -8,17 +9,23 @@ import {User} from './user/user';
 })
 export class AppComponent {
   selectedUserName: string;
-  constructor() {
+  constructor(private router: Router) {
    this.selectedUserName = 'ekoodi-2';
   }
   changeName(): void {
     this.selectedUserName = '3k00d1';
   }
   addUser (): void {
-    this.selectedUserName
+ /*   this.selectedUserName*/
   }
 onUserSelected (user: User) {
     console.log(user);
     this.selectedUserName = user.firstName + ' ' + user.lastName;
+}
+showUserList(){
+    this.router.navigate( ['/users']);
+}
+showAddUser () {
+  this.router.navigate( ['/add-user']);
 }
 }
